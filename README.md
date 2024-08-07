@@ -1,73 +1,112 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+### 1. Pattern Project
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Pattern project yang sering saya gunakan adalah "Modular Monolith" dengan struktur direktori yang rapi dan terorganisir. Pattern ini memungkinkan pengembangan yang terukur dan terstruktur, terutama untuk proyek-proyek dengan skala menengah hingga besar.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+#### Struktur Direktori
 
-## Description
+Berikut adalah struktur direktori yang saya gunakan dalam proyek NestJS ini:
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## Installation
-
-```bash
-$ npm install
+```
+src/
+  ├── auth/
+  │   ├── auth.controller.ts
+  │   ├── auth.module.ts
+  │   ├── auth.service.ts
+  │   ├── constants.ts
+  │   ├── jwt.strategy.ts
+  │   ├── local.strategy.ts
+  │   ├── jwt-auth.guard.ts
+  │   └── local-auth.guard.ts
+  ├── users/
+  │   ├── users.controller.ts
+  │   ├── users.module.ts
+  │   ├── users.service.ts
+  │   ├── user.entity.ts
+  ├── posts/
+  │   ├── posts.controller.ts
+  │   ├── posts.module.ts
+  │   ├── posts.service.ts
+  │   ├── post.entity.ts
+  ├── app.module.ts
+  ├── main.ts
+test/
+  ├── auth.e2e-spec.ts
+  ├── app.e2e-spec.ts
+  └── jest-e2e.json
 ```
 
-## Running the app
+### 2. Penjelasan Pattern di README GitHub
 
-```bash
-# development
-$ npm run start
+Berikut adalah penjelasan yang akan saya tambahkan ke dalam README proyek di GitHub:
 
-# watch mode
-$ npm run start:dev
+---
 
-# production mode
-$ npm run start:prod
-```
+# Rest API Challenge
 
-## Test
+This project is a simple REST API built with NestJS and TypeScript, implementing JWT-based authentication and basic CRUD operations for users and posts.
 
-```bash
-# unit tests
-$ npm run test
+## Project Structure and Pattern
 
-# e2e tests
-$ npm run test:e2e
+The project follows the **Modular Monolith** pattern, a widely-used architecture that balances simplicity and modularity, making it suitable for mid to large-scale applications.
 
-# test coverage
-$ npm run test:cov
-```
+### Why Modular Monolith?
 
-## Support
+1. **Separation of Concerns**: Each module (e.g., `auth`, `users`, `posts`) encapsulates its own business logic, controllers, and services. This separation enhances code maintainability and readability.
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+2. **Scalability**: Although it's a monolith, the modular design allows easy refactoring and scaling. New features or modules can be added without affecting existing ones.
 
-## Stay in touch
+3. **Reusability**: Code and logic within a module can be reused across the application. For instance, authentication logic is encapsulated within the `auth` module and can be easily reused in other parts of the application.
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+4. **Ease of Testing**: Modular design facilitates easier unit and end-to-end testing. Each module can be tested independently, ensuring that changes in one module do not inadvertently break others.
 
-## License
+### Project Structure
 
-Nest is [MIT licensed](LICENSE).
+- **auth/**: Contains authentication-related logic, including controllers, services, and strategies for JWT and local authentication.
+- **users/**: Manages user-related operations and data access logic.
+- **posts/**: Manages post-related operations and data access logic.
+- **test/**: Contains end-to-end tests to ensure the integrity of the application.
+
+### Installation
+
+To run this project, follow these steps:
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/yourusername/rest-api-challenge.git
+   cd rest-api-challenge
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Configure the environment variables in `.env` file.
+
+4. Run the application:
+
+   ```bash
+   npm run start
+   ```
+
+5. Run end-to-end tests:
+
+   ```bash
+   npm run test:e2e
+   ```
+
+### Dependencies
+
+- **NestJS**: A progressive Node.js framework for building efficient and scalable server-side applications.
+- **TypeScript**: A typed superset of JavaScript that compiles to plain JavaScript.
+- **TypeORM**: An ORM for TypeScript and JavaScript (ES7, ES6, ES5).
+- **Passport**: Authentication middleware for Node.js.
+- **JWT**: JSON Web Token for secure authentication.
+
+### License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
