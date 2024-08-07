@@ -1,3 +1,7 @@
+## Challenge Backend TypeScript - Seleksi Internship DOT
+
+Nama : Maulana Khoirusyifa'
+
 ### 1. Pattern Project
 
 Pattern project yang sering saya gunakan adalah "Modular Monolith" dengan struktur direktori yang rapi dan terorganisir. Pattern ini memungkinkan pengembangan yang terukur dan terstruktur, terutama untuk proyek-proyek dengan skala menengah hingga besar.
