@@ -39,10 +39,6 @@ test/
   └── jest-e2e.json
 ```
 
-### 2. Penjelasan Pattern di README GitHub
-
-Berikut adalah penjelasan yang akan saya tambahkan ke dalam README proyek di GitHub:
-
 ---
 
 # Rest API Challenge
